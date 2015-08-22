@@ -30,3 +30,6 @@ Ext.ux.DetailMsg.show({
 })
 
 ```
+
+![abc](./Demo/Pic/bDetail-msg-c.png) "xyz"
+
