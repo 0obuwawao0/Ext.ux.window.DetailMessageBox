@@ -1,5 +1,5 @@
 # Ext.ux.window.DetailMessageBox
-带有可以折叠详细信息的对话框，该扩展组件是基于ExtJS5.1.1版本仿照MessageBox单例窗口编写。
+带有可以折叠详细信息的对话框，该扩展组件是基于ExtJS5.1.1版本仿照MessageBox单例窗口编写。会有很多不完善的地方，将在以后的项目中或业余时间中进行修改。
 
 ## 部署扩展
 将 `DetailMessageBox.js` 文件放于项目所在的 ExtJS 库目录
@@ -64,8 +64,7 @@ Ext.ux.DetailMsg.show({
      *  Ext.MessageBox.YESNO
      *  Ext.MessageBox.YESNOCANCEL
 * `fn` — 窗口按钮回调
-* `autoHide:true/false` — 默认 `true` 点击按钮后自动关闭本窗口；`false`时按钮点击后不自动隐藏；
-	需要使用 `Ext.ux.DetailMsg.hide()` 方法进行窗口隐藏操作。 窗口右上角的 `X` 按钮不在该配置控制范围类
+* `autoHide:true/false` — 默认 `true` 点击按钮后自动关闭本窗口；`false` 时按钮点击后不自动隐藏,需要使用 `Ext.ux.DetailMsg.hide()` 方法进行窗口隐藏操作。 窗口右上角的 `X` 按钮不在该配置控制范围
 
 ## 方法
 * `show(config)` — *{config:Object}* 使用时传入配置项
