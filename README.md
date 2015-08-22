@@ -30,6 +30,7 @@ Ext.ux.DetailMsg.show({
 })
 
 ```
-
-![abc](./Demo/Pic/bDetail-msg-c.png) "xyz"
+效果如下图：
+![详细信息收起状态](./Demo/Pic/bDetail-msg-c.png) 
+![详细信息展开状态](./Demo/Pic/bDetail-msg.png)
 
