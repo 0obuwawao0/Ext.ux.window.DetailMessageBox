@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>ExtJS带折叠信息对话框 by 0obuwawao0</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">ExtJS带折叠信息对话框</h1>
+      <h2 class="project-tagline">ExtJS, window, MessageBox, 详细信息, 折叠详细对话框</h2>
+      <a href="https://github.com/0obuwawao0/Ext.ux.window.DetailMessageBox" class="btn">View on GitHub</a>
+      <a href="https://github.com/0obuwawao0/Ext.ux.window.DetailMessageBox/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/0obuwawao0/Ext.ux.window.DetailMessageBox/tarball/master" class="btn">Download .tar.gz</a>
+    </section>
+
+    <section class="main-content">
+      <h1>
+<a id="extuxwindowdetailmessagebox" class="anchor" href="#extuxwindowdetailmessagebox" aria-hidden="true"><span class="octicon octicon-link"></span></a>Ext.ux.window.DetailMessageBox</h1>
+
+<p>带有可以折叠详细信息的对话框，该扩展组件是基于ExtJS5.1.1版本仿照MessageBox单例窗口编写。会有很多不完善的地方，将在以后的项目中或业余时间中进行修改。</p>
+
+<h2>
+<a id="部署扩展" class="anchor" href="#%E9%83%A8%E7%BD%B2%E6%89%A9%E5%B1%95" aria-hidden="true"><span class="octicon octicon-link"></span></a>部署扩展</h2>
+
+<p>将 <code>DetailMessageBox.js</code> 文件放于项目所在的 ExtJS 库目录
+新建立 <code>ux/window</code> 即可</p>
+
+<h2>
+<a id="引入扩展" class="anchor" href="#%E5%BC%95%E5%85%A5%E6%89%A9%E5%B1%95" aria-hidden="true"><span class="octicon octicon-link"></span></a>引入扩展</h2>
+
+<p>在对应的 <code>controller</code> 中使用 <code>requires</code> 将 <code>Ext.ux.window.DetailMessageBox</code> 类名引入：</p>
+
+<div class="highlight highlight-javascript"><pre>
+requires <span class="pl-k">:</span> [
+  <span class="pl-s"><span class="pl-pds">'</span>Ext.ux.window.DetailMessageBox<span class="pl-pds">'</span></span>
+]
+</pre></div>
+
+<h2>
+<a id="使用方法" class="anchor" href="#%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95" aria-hidden="true"><span class="octicon octicon-link"></span></a>使用方法</h2>
+
+<p>该扩展定义的为单例窗口，在引入时就已实例化，所以在需要弹出详细对话框时可以直接使用别名 <code>Ext.ux.DetailMsg</code> 进行操作：</p>
+
+<div class="highlight highlight-javascript"><pre>
+Ext.<span class="pl-c1">ux</span>.<span class="pl-c1">DetailMsg</span>.<span class="pl-c1">show</span>({
+   title <span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>弹出窗口标题<span class="pl-pds">'</span></span>,
+   icon <span class="pl-k">:</span> Ext.<span class="pl-c1">Msg</span>.<span class="pl-c1">QUESTION</span>,
+   width <span class="pl-k">:</span> <span class="pl-c1">300</span>,
+   msg <span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>弹出消息类容<span class="pl-pds">'</span></span>,
+   bDetail <span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>弹出消息内容下方详细信息<span class="pl-pds">'</span></span>,
+   buttons<span class="pl-k">:</span> Ext.<span class="pl-c1">Msg</span>.<span class="pl-c1">OKCANCEL</span>,
+   <span class="pl-en">fn</span> <span class="pl-k">:</span> <span class="pl-k">function</span>(<span class="pl-smi">btnId</span>){
+       <span class="pl-k">if</span> (btnId <span class="pl-k">===</span> <span class="pl-s"><span class="pl-pds">'</span>ok<span class="pl-pds">'</span></span>){
+           <span class="pl-c">//点击了确认按钮</span>
+       }
+   }
+})
+</pre></div>
+
+<p>效果如下图：</p>
+
+<p><img src="./Demo/Pic/bDetail-msg-c.png" alt="详细信息收起状态"></p>
+
+<p><img src="./Demo/Pic/bDetail-msg.png" alt="详细信息展开状态"></p>
+
+<h2>
+<a id="配置项" class="anchor" href="#%E9%85%8D%E7%BD%AE%E9%A1%B9" aria-hidden="true"><span class="octicon octicon-link"></span></a>配置项</h2>
+
+<ul>
+<li>
+<code>title</code> — 窗口标题</li>
+<li>
+<code>icon</code> — 消息类型图标
+
+<ul>
+<li>可以指定一个自定义的图标类名</li>
+<li>可以使用 ExtJS 内置图标
+
+<ul>
+<li> Ext.MessageBox.INFO</li>
+<li> Ext.MessageBox.WARNING</li>
+<li> Ext.MessageBox.QUESTION</li>
+<li> Ext.MessageBox.ERROR</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<code>msg</code> — 简要消息文本</li>
+<li>
+<code>bDetail</code> — 占据下方全宽详细信息文本 <code>bDetail</code> 或 <code>sDetail</code> 任选一个使用即可</li>
+<li>
+<code>sDetail</code> — 图标右侧缩进详细信息文本 <code>bDetail</code> 或 <code>sDetail</code> 任选一个使用即可</li>
+<li>
+<code>buttons</code> — 窗口按钮组合
+
+<ul>
+<li>可以使用 ExtJS 内置按钮组合
+
+<ul>
+<li> Ext.MessageBox.OK</li>
+<li> Ext.MessageBox.YES</li>
+<li> Ext.MessageBox.NO</li>
+<li> Ext.MessageBox.CANCEL</li>
+<li> Ext.MessageBox.OKCANCEL</li>
+<li> Ext.MessageBox.YESNO</li>
+<li> Ext.MessageBox.YESNOCANCEL</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<code>fn</code> — 窗口按钮回调</li>
+<li>
+<code>autoHide:true/false</code> — 默认 <code>true</code> 点击按钮后自动关闭本窗口；<code>false</code> 时按钮点击后不自动隐藏,需要使用 <code>Ext.ux.DetailMsg.hide()</code> 方法进行窗口隐藏操作。 窗口右上角的 <code>X</code> 按钮不在该配置控制范围</li>
+</ul>
+
+<h2>
+<a id="方法" class="anchor" href="#%E6%96%B9%E6%B3%95" aria-hidden="true"><span class="octicon octicon-link"></span></a>方法</h2>
+
+<ul>
+<li>
+<code>show(config)</code> — <em>{config:Object}</em> 使用时传入配置项</li>
+<li>
+<code>hide()</code> — 当 <code>autoHide:false</code> 时使用该方法隐藏窗口</li>
+<li>
+<code>updateText(msg)</code> — <em>{msg:String}</em> 用于更改简要消息</li>
+<li>
+<code>updateDetailMsg(s/b, msg)</code> — <em>s</em>：用于更改sDetail框中的详细信息，<em>b</em>：用于更改bDetail框上的详细信息；<em>{msg:String}</em> 详细信息内容</li>
+</ul>
+
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://github.com/0obuwawao0/Ext.ux.window.DetailMessageBox">ExtJS带折叠信息对话框</a> is maintained by <a href="https://github.com/0obuwawao0">0obuwawao0</a>.</span>
+
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+      </footer>
+
+    </section>
+
+  
+  </body>
+</html>
